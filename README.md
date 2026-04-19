@@ -29,7 +29,6 @@ A classic Tetris game implementation with a modern web interface, featuring real
 
 ### 1. Clone or download the project
 
-\`\`\`bash
 git clone <repository-url>
 cd tetris-app
 
@@ -79,9 +78,8 @@ Open your browser and navigate to `http://localhost:8000`
 
 ## **Project Structure**
 
-text
 
-tetris-app/
+```tetris-app/
 ├── backend/
 │   ├── server.js          # Express server with API endpoints
 │   ├── package.json       # Backend dependencies
@@ -96,6 +94,7 @@ tetris-app/
     │   └── tetris.js      # Tetris game logic and controller
     └── partials/
         └── game.html      # Game template view
+```
 
   
 
