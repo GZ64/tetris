@@ -1,4 +1,4 @@
-\# Tetris Game with AngularJS and Node.js
+Tetris Game with AngularJS and Node.js
 
 A classic Tetris game implementation with a modern web interface, featuring real-time gameplay, score tracking, and a backend API for saving high scores.
 

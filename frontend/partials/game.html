@@ -1,0 +1,72 @@
+<div class="game-container" ng-controller="TetrisController">
+    <div class="game-header">
+        <h1>TETRIS</h1>
+        <div class="player-info">
+            <input type="text" ng-model="playerName" placeholder="Enter your name" maxlength="20">
+        </div>
+    </div>
+
+    <div class="game-main">
+        <div class="game-area">
+            <canvas id="tetrisCanvas" width="300" height="600"></canvas>
+        </div>
+
+        <div class="game-info">
+            <div class="info-panel">
+                <h3>Score</h3>
+                <div class="score">{{ score }}</div>
+            </div>
+
+            <div class="info-panel">
+                <h3>Level</h3>
+                <div class="level">{{ level }}</div>
+            </div>
+
+            <div class="info-panel">
+                <h3>Lines</h3>
+                <div class="lines">{{ lines }}</div>
+            </div>
+
+            <div class="info-panel">
+                <h3>Next Piece</h3>
+                <canvas id="nextCanvas" width="120" height="120"></canvas>
+            </div>
+
+            <div class="controls">
+                <button ng-click="startGame()" ng-disabled="gameActive">Start Game</button>
+                <button ng-click="pauseGame()" ng-disabled="!gameActive">Pause</button>
+                <button ng-click="resetGame()">Reset</button>
+            </div>
+
+            <div class="instructions">
+                <h4>Controls:</h4>
+                <p>← → : Move</p>
+                <p>↑ : Rotate</p>
+                <p>↓ : Soft Drop</p>
+                <p>Space : Hard Drop</p>
+                <p>P : Pause</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="scoreboard">
+        <h2>Top Scores</h2>
+        <div class="score-list">
+            <div class="score-item" ng-repeat="score in topScores | limitTo:10">
+                <span class="rank">{{ $index + 1 }}.</span>
+                <span class="player">{{ score.playerName }}</span>
+                <span class="score-value">{{ score.score }}</span>
+            </div>
+        </div>
+        <button ng-click="loadScores()" class="refresh-btn">Refresh Scores</button>
+    </div>
+
+    <div class="game-status" ng-show="gameOver">
+        <div class="game-over-popup">
+            <h2>Game Over!</h2>
+            <p>Your score: {{ score }}</p>
+            <button ng-click="saveScore()">Save Score</button>
+            <button ng-click="startGame()">Play Again</button>
+        </div>
+    </div>
+</div>
