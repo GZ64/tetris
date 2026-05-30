@@ -1,6 +1,6 @@
 angular.module('tetrisApp')
     .factory('ScoreService', ['$http', '$q', function($http, $q) {
-        const API_URL = window.location.origin + '/api';
+        const API_URL = 'https://tetris-server.gregoryzirn.fr/api';
 
         return {
             getTopScores: function() {

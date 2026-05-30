@@ -8,7 +8,19 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+// Configuration CORS pour accepter le frontend
+const corsOptions = {
+    origin: [
+        'https://tetris.gregoryzirn.fr',  // frontend
+        'http://localhost:8000',           // Pour le développement local
+        'http://localhost:3000'
+    ],
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
